@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="content">
+	<name>plg_sqlcon</name>
+	<author>RSA</author>
+	<creationDate>Mart 2013</creationDate>
+	<copyright>Copyright (C) 2013 RSA. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>rsa_m@mail.ru</authorEmail>
+	<authorUrl></authorUrl>
+	<version>1.0.0</version>
+	<description>Плагин для вывода в контекст значений полей базы данных</description>
+
+	<files>
+		<filename plugin="sqlcon">sqlcon.php</filename>
+		<filename>index.html</filename>
+	</files>
+	
+	<languages>
+		<language tag="en-GB">language/en-GB.plg_sqlcon.ini</language>
+		<language tag="en-GB">language/en-GB.plg_sqlcon.sys.ini</language>
+	</languages>
+	
+	<!--<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="check_categories"
+					type="radio"
+					default="1"
+					description="PLG_CONTENT_JOOMLA_FIELD_CHECK_CATEGORIES_DESC"
+					label="PLG_CONTENT_JOOMLA_FIELD_CHECK_CATEGORIES_LABEL">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field name="email_new_fe"
+					type="radio"
+					default="1"
+					description="PLG_CONTENT_JOOMLA_FIELD_EMAIL_NEW_FE_DESC"
+					label="PLG_CONTENT_JOOMLA_FIELD_EMAIL_NEW_FE_LABEL">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>-->
+
+</extension>
