@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="2.5" type="plugin" group="content" method="upgrade">
+<extension version="3.3.0" type="plugin" group="content" method="upgrade">
 	<name>tsj plg_sqlcon</name>
 	<creationDate>Mart 2013</creationDate>
    <author>Shibin Roman</author>
@@ -8,9 +8,9 @@
    <copyright>Copyright 2012-2013 Shibin Roman</copyright>
    <license>GNU/GPL3</license>
    <!-- The version string is recorded in the components table -->
-   <version>2.0.0</version>
+   <version>3.0.1</version>
    <!-- The description is optional and defaults to the name -->
-	<description>Плагин для вывода в контекст значений полей базы данных</description>
+	<description>Plugin for output in content value from database</description>
 
 	<files>
 		<filename plugin="sqlcon">sqlcon.php</filename>
