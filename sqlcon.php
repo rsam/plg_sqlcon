@@ -91,7 +91,7 @@ function sqlcon_plugin_mainloop(&$SQLCON, $start_pos, $tag_start, $tag_stop)
 			// lst[0] = table_name
 			// lst[1] = column_name or constant 'usertarif'
 			// lst[2] = column_name_for_where=value
-			$lst = explode('.', $sbs);
+			$lst = explode('.', $sbs, 3);
 			
 			// table_name.usertarif.column_name_for_where=value
 			// table_name.usertarifcalc.column_name_for_where=value
