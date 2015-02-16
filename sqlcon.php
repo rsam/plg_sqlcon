@@ -9,6 +9,12 @@ defined('_JEXEC') or die;
 // Import library dependencies
 jimport('joomla.event.plugin');
 
+class clsSQLCon {
+	function __construct() {
+
+	}
+}
+
 /**
  * Content Plugin
  *
@@ -39,11 +45,9 @@ class plgContentSQLCon extends JPlugin
 		$start_pos = strpos($article->text, $tag_start);
 
 		// If no sqlcon tag then return
-		if ($start_pos===false) return '';
+                if ($start_pos === false) { return ''; }
 
-		$SQLCON = false;
-
-		$Id = $article->id;
+		//$Id = $article->id;
 		$SQLCON = new clsSQLCon();
 		$SQLCON->Render = SQLCON_NOTHING;
 		$SQLCON->Source = $article->text;
@@ -51,7 +55,7 @@ class plgContentSQLCon extends JPlugin
 		$article->text = $SQLCON->Source;
 
 		unset($SQLCON);
-		return '';
+		return $tag_list;
 	}
 }
 
@@ -68,7 +72,7 @@ function sqlcon_plugin_mainloop(&$SQLCON, $start_pos, $tag_start, $tag_stop)
 	$user = &JFactory::getUser();
 			
 	$username = $user->get('id');
-	if($username == null) $username = 0;
+        if($username === null) { $username = 0; }
 			
 	// Цикл составления запросов к базе данных
 	do {
@@ -85,7 +89,7 @@ function sqlcon_plugin_mainloop(&$SQLCON, $start_pos, $tag_start, $tag_stop)
 			//echo ' $sbs='.$sbs;
 
 			
-			$lst = array();
+			//$lst = array();
 			
 			// table_name.column_name.column_name_for_where=value
 			// lst[0] = table_name
@@ -96,7 +100,7 @@ function sqlcon_plugin_mainloop(&$SQLCON, $start_pos, $tag_start, $tag_stop)
 			// table_name.usertarif.column_name_for_where=value
 			// table_name.usertarifcalc.column_name_for_where=value
 			
-			if($lst[2] == "usertarif"){
+			if($lst[2] === "usertarif"){
 				// table_name.column_name.usertarif
 				$sql = "SELECT ". $lst[1] .
 						 " FROM #__". $lst[0] .
@@ -124,9 +128,9 @@ function sqlcon_plugin_mainloop(&$SQLCON, $start_pos, $tag_start, $tag_stop)
 							echo $db->stderr();
 						//	return false;
 						}
-						if ($row == "1") $lst[1] = "tarif_1";
-						else if ($row == "2") $lst[1] = "tarif_2";
-						else /*if ($row == "0")*/ $lst[1] = "tarif";
+                                                if ($row === "1") { $lst[1] = "tarif_1"; }
+                                                else if ($row === "2") { $lst[1] = "tarif_2"; }
+                                                else /*if ($row === "0")*/ { $lst[1] = "tarif"; }
 						
 						$sql = "SELECT ". $lst[1] .
 								" FROM #__". $lst[0] .
@@ -158,14 +162,8 @@ function sqlcon_plugin_mainloop(&$SQLCON, $start_pos, $tag_start, $tag_stop)
 
 			$start_pos = strpos($SQLCON->Source,$tag_start);
 		}
-	} while ($start_pos!==false);
+	} while ($start_pos !== false);
 
 	//print_r($sql_table_list);
-	return $tag_lst;
-}
-
-class clsSQLCon {
-	function __construct() {
-
-	}
+	return $lst;
 }
